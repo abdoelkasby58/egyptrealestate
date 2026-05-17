@@ -1,5 +1,5 @@
 <script setup>
-import { ref, onMounted } from "vue"
+import {  onMounted } from "vue"
 import gsap from "gsap"
 import imgbarnd1 from "@/assets/talatmostafa-removebg-preview.png";
 import imgbarnd2 from "@/assets/tatweermisr-removebg-preview.png";
@@ -11,7 +11,6 @@ import imgbarnd7 from "@/assets/cityedge-removebg-preview.png";
 import imgbarnd8 from "@/assets/emaar-removebg-preview.png";
 import imgbarnd9 from "@/assets/mountainview-removebg-preview.png";
 import imgbarnd10 from "@/assets/hydepark-removebg-preview.png";
-const container = ref(null)
 
 const brands = [
     { id: 1, name: "Abdo Elkasby", logo: imgbarnd1 },
@@ -33,7 +32,6 @@ onMounted(() => {
 
     const spacing = 280 // المسافة بين العناصر
 
-    const containerWidth = container.value.offsetWidth
 
     // نوزع العناصر أفقياً
     items.forEach((el, i) => {

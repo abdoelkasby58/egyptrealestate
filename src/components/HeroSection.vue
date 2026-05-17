@@ -42,8 +42,7 @@
 import PhotoSection from "@/assets/sectionheroestate.webp"
 import { onMounted, ref } from "vue";
 import gsap from "gsap";
-import { useI18n } from "vue-i18n";
-const { t } = useI18n()
+
 
 const countproject = ref(0)
 const countResidentialunit = ref(0)

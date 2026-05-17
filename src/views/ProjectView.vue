@@ -1,9 +1,9 @@
-<script setup lang="ts">
-import NavBar from '@/components/NavBar.vue';
-import SectionProjects from '@/components/SectionProjects.vue';
-import { useI18n } from 'vue-i18n';
+<script setup>
 
-const { t } = useI18n();
+import SectionProjects from '@/components/SectionProjects.vue';
+
+
+
 </script>
 
 <template>

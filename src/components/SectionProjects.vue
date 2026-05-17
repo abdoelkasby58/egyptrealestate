@@ -163,7 +163,6 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { onMounted, ref } from 'vue';
 import { useRouter } from 'vue-router';
 const store = useApistore()
-const countCards = ref(8)
 //FAV
 const isFav = ref([])
 const ToggleFav = (id) => {
