@@ -42,6 +42,7 @@ export default {
 
   about: {
     title: "هذه صفحة عن الشركة",
+    desc: "تعرف على أحدث مشروعات الشركة وخدماتها العقارية المميزة."
   },
 
   projectDetails: {

@@ -40,20 +40,20 @@ const filteredNews = computed(() => {
 const headerRef = ref(null)
 const tabsRef = ref(null)
 const cardsRef = ref([])
-
+const headingRef = ref(null)
 // دالة مخصصة لتحديث الكروت فقط عند الفلترة
 const animateCards = () => {
 
     const validCards = cardsRef.value.filter(el => el !== null)
-    
+
     if (validCards.length === 0) return
 
- 
+
     gsap.set(validCards, { y: 40, opacity: 0 })
 
-  
+
     gsap.to(validCards, {
-        y: 0, 
+        y: 0,
         opacity: 1,
         duration: 0.5,
         stagger: 0.08,
@@ -64,8 +64,8 @@ const animateCards = () => {
 
 
 watch(activeTab, async () => {
-    cardsRef.value = [] 
-    await nextTick()   
+    cardsRef.value = []
+    await nextTick()
     animateCards()
 })
 
@@ -74,13 +74,22 @@ onMounted(() => {
 
 
     tl.from(headerRef.value, {
-        y: 30,
-        opacity: 0,
-        duration: 0.6,
-        ease: "power3.out"
+      opacity: 0,
+        duration: 0.4,
+        scale:0.1,
+        y:60,
+        delay:0.4,
+        ease: "power1.inOut"
     })
 
-   
+    // Heading
+    tl.from(headingRef.value, {
+        opacity: 0,
+        y: 40,
+        duration: 0.7,
+        force3D: true,
+        clearProps: "all",
+    })
     tl.from(tabsRef.value, {
         y: 20,
         opacity: 0,
@@ -94,10 +103,11 @@ onMounted(() => {
 
 <template>
     <section class="py-10 px-4 min-h-screen bg-[var(--color-bg)]">
-        <div class="max-w-[1300px] mx-auto">
+        <div class=" mx-auto">
 
-            <div ref="headerRef" class="text-center mb-10">
-                <h1 class="mainTitle text-[var(--color-title)] mb-3">
+            <div ref="headerRef"
+                class="text-center mb-12 bg-[var(--color-boxes-pagedetails)] py-4 md:py-8 backdrop-blur-sm rounded-[60px] rounded-tr-[20px] ">
+                <h1 class="mainTitle text-[var(--color-title)] mb-9">
                     {{ $t("news.title") }}
                 </h1>
                 <p class="paragraph text-[var(--color-text)]">
@@ -115,13 +125,13 @@ onMounted(() => {
             </div>
 
             <div class="grid md:grid-cols-3 gap-6">
-                <div v-for="(item, index) in filteredNews" :key="item.id" 
-                    :ref="el => { if (el) cardsRef[index] = el }"
+                <div v-for="(item, index) in filteredNews" :key="item.id" :ref="el => { if (el) cardsRef[index] = el }"
                     class="news-card bg-[var(--color-boxes-pagedetails)] rounded-[24px] overflow-hidden border border-white/10 opacity-0 hover:border-[var(--color-primary)] transition-all duration-300 group">
-                    
+
                     <div class="overflow-hidden">
-                        <img loading="lazy" decoding="async" :src="item.image" class="w-full bg-cover bg-center bg-no-repeat group-hover:scale-105 transition-transform duration-500" sizes="100vw"
-                             fetchpriority="high" alt="Hero" />
+                        <img loading="lazy" decoding="async" :src="item.image"
+                            class="w-full bg-cover bg-center bg-no-repeat group-hover:scale-105 transition-transform duration-500"
+                            sizes="100vw" fetchpriority="high" alt="Hero" />
                     </div>
 
                     <div class="p-5">

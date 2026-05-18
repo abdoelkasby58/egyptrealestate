@@ -9,7 +9,7 @@ const LazySectionProjects = defineAsyncComponent(() => import('@/components/Sect
 </script>
 
 <template>
-  <header class="relative pt-30">
+  <header class="relative max-w-[1400px] pt-30">
 
     <LazySectionProjects />
 

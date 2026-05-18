@@ -72,10 +72,10 @@ const chartOptions = {
 
     plugins: {
         legend: {
-            position: "bottom",
+            position: "left",
 
             labels: {
-                color: "#fff",
+                color: "#CBD5E1",
 
                 font: {
                     size: 14,
@@ -184,21 +184,21 @@ const lineOptions = {
       grid
       grid-cols-1
       lg:grid-cols-2
-      gap-8
-      mb-23
+      gap-8 bg-[var(--color-boxes-pagedetails)]
+      pb-23
     ">
         <!-- Doughnut -->
         <div class="
         mainCard
         p-6
-        h-[420px]
+        h-[380px]
       ">
             <div class="flex items-center justify-between mb-6">
-                <h2 class="sectionTitle">
+                <h2 class="sectionTitle  text-[var(--color-title)]">
                     {{ $t("charts.realEstateRatio") }}
                 </h2>
 
-                <span class="smallText">
+                <span class="smallText  text-[var(--color-text)]">
                     {{ $t("charts.lastUpdate") }}
                 </span>
             </div>
@@ -210,14 +210,14 @@ const lineOptions = {
         <div class="
         mainCard
         p-6
-        h-[420px]
+        h-[380px]
       ">
             <div class="flex items-center justify-between mb-6">
-                <h2 class="sectionTitle">
+                <h2 class="sectionTitle text-[var(--color-title)]">
                     {{ $t("charts.salesGrowth") }}
                 </h2>
 
-                <span class="smallText">
+                <span class="smallText text-[var(--color-text)]">
                     {{ $t("charts.lastMonths") }}
                 </span>
             </div>
@@ -233,7 +233,7 @@ const lineOptions = {
       sm:grid-cols-2
       lg:grid-cols-4
       gap-10 
-      m-9
+      m-9 bg-[var(--color-boxes-pagedetails)]
     ">
         <!-- Card -->
         <div class="

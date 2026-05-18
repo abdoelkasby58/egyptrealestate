@@ -225,11 +225,12 @@ onMounted(async () => {
 
         // Heading
         tl.from(headingRef.value, {
-            opacity: 0,
-            y: 40,
-            duration: 0.7,
-            force3D: true,
-            clearProps: "all",
+             opacity: 0,
+        duration: 0.4,
+        scale:0.1,
+        y:60,
+        delay:0.4,
+        ease: "power1.inOut"
         })
 
         // Filters

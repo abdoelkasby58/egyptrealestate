@@ -42,6 +42,7 @@ export default {
 
   about: {
     title: "This is an about page",
+    desc:"Explore the company’s latest projects and premium real estate services."
   },
 
   projectDetails: {

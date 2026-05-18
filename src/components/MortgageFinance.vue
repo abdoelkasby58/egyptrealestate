@@ -7,7 +7,7 @@
 
             <!-- Left -->
             <div ref="leftContent"
-                class="relative lg:col-span-7 p-4 sm:p-6 lg:p-7 flex flex-col justify-center">
+                class="relative lg:col-span-7 pl-4 sm:pl-6 lg:pl-7 flex flex-col justify-center">
 
                 <div class="md:absolute md:top-0 md:inset-s-10 text-center mb-6">
                     <h1 class="text-[var(--color-title)] cardTitle font-bold mb-2">

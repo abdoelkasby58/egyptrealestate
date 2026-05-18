@@ -1,5 +1,5 @@
 <template>
-    <header class="relative pt-28">
+    <header class="relative max-w-[1400px] pt-28">
         <News></News>
     </header>
 </template>

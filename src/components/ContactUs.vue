@@ -205,7 +205,7 @@ const handleSubmit = async () => {
                                 {{ $t("contact.info.emailTitle") }}
                             </h3>
                             <p class="smallText font-semibold text-[var(--color-title)]">
-                                {{ $t("contact.info.emailValue") }}
+                               info@aqarmisr.com
                             </p>
                         </div>
                     </div>

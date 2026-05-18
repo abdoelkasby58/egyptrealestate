@@ -1,4 +1,6 @@
-import { createRouter, createWebHistory } from "vue-router";
+import i18n from "@/i18n"
+import { computed, watchEffect } from "vue"
+import { createRouter, createWebHistory } from "vue-router"
 
 const routes = [
   {
@@ -6,79 +8,80 @@ const routes = [
     name: "home",
     component: () => import("@/views/HomeView.vue"),
     meta: {
-      title: "Home",
+      title: "nav.home",
     },
   },
   {
     path: "/projects",
     name: "projects",
-
     component: () => import("@/views/ProjectView.vue"),
     meta: {
-      title: "Projects",
+      title: "nav.projects",
     },
   },
   {
     path: "/about",
     name: "about",
-
     component: () => import("@/views/AboutView.vue"),
     meta: {
-      title: "About",
+      title: "nav.about",
     },
   },
   {
     path: "/news",
     name: "news",
-
     component: () => import("@/views/NewsView.vue"),
     meta: {
-      title: "NEWS",
+      title: "nav.news",
     },
   },
   {
     path: "/contactus",
     name: "contactus",
-
     component: () => import("@/views/ContactViews.vue"),
     meta: {
-      title: "ContactUs",
+      title: "nav.contact",
     },
   },
   {
     path: "/pagedetailscompaund/:id",
     name: "details",
-
     component: () => import("@/components/PageDetails.vue"),
     meta: {
-      title: "About",
+      title: "nav.projects",
     },
   },
   {
     path: "/login",
     name: "login",
-
     component: () => import("@/components/LogIn.vue"),
     meta: {
-      title: "Log in",
+      title: "nav.consult",
     },
   },
   {
     path: "/mortgagefinance",
     name: "mortgagefinance",
-
     component: () => import("@/components/MortgageFinance.vue"),
     meta: {
       title: "mortgagefinance",
     },
   },
-];
+]
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes,
-});
-router.afterEach((to) => {
-  document.title = to.meta.title || "Default App Title";
-});
-export default router;
+})
+
+const pageTitle = computed(() => {
+  if (!router.currentRoute.value.meta.title) return ""
+
+  return i18n.global.t(router.currentRoute.value.meta.title)
+})
+
+watchEffect(() => {
+  document.title = pageTitle.value
+})
+
+export default router

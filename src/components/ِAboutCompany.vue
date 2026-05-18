@@ -1,7 +1,15 @@
 <template>
     <section ref="sectionRef" class="pt-10 pb-44 md:pb-32 text-white overflow-visible">
-        <div class="max-w-[1300px] mx-auto px-4">
-
+        <div class="mx-auto px-9">
+            <div ref="headingRef"
+                class="text-center mb-12 bg-[var(--color-boxes-pagedetails)] py-4 md:py-8 backdrop-blur-sm rounded-[60px] rounded-tr-[20px] ">
+                <h1 class="mainTitle text-[var(--color-title)] mb-9">
+                    {{ $t("nav.about") }}
+                </h1>
+                <p class="paragraph text-[var(--color-text)]">
+                    {{ $t("about.desc") }}
+                </p>
+            </div>
             <!-- Main Box -->
             <div class="relative rounded-[30px] overflow-visible">
 
@@ -98,37 +106,47 @@ const countClient = ref(0)
 const countinvestment = ref(0)
 const countCitynewabout = ref(0)
 gsap.registerPlugin(ScrollTrigger)
-
+const headingRef = ref(null)
 const sectionRef = ref(null)
 const contentRef = ref(null)
 const buttonRef = ref(null)
 const extraCardRef = ref(null)
 const statsRef = ref([])
 onMounted(async () => {
-    gsap.to(countAboutproject, {
-        value: 100,
-        duration: 4,
-        delay: 3,
-        ease: "power2.out",
-        roundProps: "value",
-        onUpdate: () => {
-            countAboutproject.value = Math.floor(countAboutproject.value)
-        }
+    // Heading
+  gsap.from(headingRef.value, {
+        opacity: 0,
+        duration: 0.4,
+        scale:0.1,
+        y:60,
+        delay:0.4,
+        ease: "power1.inOut"
     })
-    gsap.to(countClient, {
-        value: 10000,
-        duration: 4, 
-        delay: 3,
-        ease: "power2.out",
-        roundProps: "value",
-        onUpdate: () => {
-            countClient.value = Math.floor(countClient.value)
-        }
-    })
+        gsap.to(countAboutproject, {
+            value: 100,
+            duration: 4,
+            delay: 3,
+            ease: "power2.out",
+            roundProps: "value",
+            onUpdate: () => {
+                countAboutproject.value = Math.floor(countAboutproject.value)
+            }
+        }),
+
+        gsap.to(countClient, {
+            value: 10000,
+            duration: 4,
+            delay: 3,
+            ease: "power2.out",
+            roundProps: "value",
+            onUpdate: () => {
+                countClient.value = Math.floor(countClient.value)
+            }
+        })
     gsap.to(countinvestment, {
         value: 15,
         duration: 4,
-        delay:3,
+        delay: 3,
         ease: "power2.out",
         roundProps: "value",
         onUpdate: () => {
@@ -138,7 +156,7 @@ onMounted(async () => {
     gsap.to(countCitynewabout, {
         value: 8,
         duration: 4,
-        delay:3,
+        delay: 3,
         ease: "power2.out",
         roundProps: "value",
         onUpdate: () => {
@@ -225,5 +243,4 @@ const stats = computed(() => [
     width: 100%;
     background: linear-gradient(100deg, rgb(2, 13, 27) 0%, rgba(7, 17, 27, 0.5) 50%, rgb(2, 13, 27) 100%);
 }
-
 </style>
