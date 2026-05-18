@@ -1,8 +1,8 @@
 <script setup>
 import { RouterView } from 'vue-router'
-import NavBar from '@/components/NavBar.vue';
+
 import { defineAsyncComponent, onMounted, onUnmounted, ref } from 'vue';
-import Footer from '@/components/Footer.vue';
+
 import { Icon } from '@iconify/vue';
 
 const LazyNavBar = defineAsyncComponent(() => import('@/components/NavBar.vue'))
