@@ -1,19 +1,19 @@
 <script setup>
 
-import SectionProjects from '@/components/SectionProjects.vue';
 
+import { defineAsyncComponent } from 'vue';
+
+const LazySectionProjects = defineAsyncComponent(() => import('@/components/SectionProjects.vue'))
 
 
 </script>
 
 <template>
   <header class="relative pt-30">
-  
-      <SectionProjects/>
+
+    <LazySectionProjects />
 
   </header>
-</template> 
+</template>
 
-<style>
-
-</style>
+<style></style>

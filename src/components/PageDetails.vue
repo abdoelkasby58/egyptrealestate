@@ -81,7 +81,7 @@ console.log(storeDet)
             <div class="max-w-[1300px] mx-auto grid lg:grid-cols-2 gap-10">
                 <!-- Image -->
                 <div ref="imageRef">
-                    <img :src="project?.image" :alt="project?.title"
+                    <img loading="lazy" decoding="async" :src="project?.image" :alt="project?.title"
                         class="w-full h-[500px] object-cover rounded-3xl" />
                 </div>
 

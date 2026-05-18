@@ -79,7 +79,7 @@
 
             <!-- Logo -->
             <div>
-                <img @click="refresh" :src="LogoReal" class="w-[65px] md:w-[75px] lg:w-[85px] cursor-pointer transition" alt="Logo" />
+                <img loading="lazy" decoding="async" @click="refresh" :src="LogoReal" class="w-[65px] md:w-[75px] lg:w-[85px] cursor-pointer transition" alt="Logo" />
             </div>
         </div>
     </section>

@@ -1,6 +1,6 @@
 <template>
     <header class="relative pt-28">
-        <News />
+        <News></News>
     </header>
 </template>
 <script setup>

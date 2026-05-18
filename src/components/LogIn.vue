@@ -226,7 +226,7 @@ import Footer from './Footer.vue';
   <section class="absolute top-0 inset-0">
   <div class="relative pt-25 min-h-screen overflow-hidden">
     <!-- الخلفية -->
-    <img src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?q=80&w=2000" alt="Interior"
+    <img src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?q=80&w=2000" loading="lazy" decoding="async" alt="Interior"
       class="absolute inset-0 w-full h-full object-cover opacity-100" />
 
     <!-- Overlay -->
@@ -240,7 +240,7 @@ import Footer from './Footer.vue';
         class="w-full max-w-5xl grid grid-cols-1 lg:grid-cols-2 rounded-[30px] overflow-hidden border border-white/10 backdrop-blur-sm bg-white/5 shadow-2xl">
         <!-- الجزء الشمال -->
         <div class="hidden lg:flex flex-col justify-start py-16 px-8 bg-gradient-to-b from-black/30 to-black/60">
-          <!-- <img src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?q=80&w=2000" 
+          <!-- <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?q=80&w=2000" 
              alt="Interior" class="absolute inset-0 w-full h-full object-cover opacity-60"> -->
           <h1 class="sectionTitle font-bold text-white leading-tight mb-6">
             {{ $t('auth.welcome') }}
@@ -492,15 +492,15 @@ import Footer from './Footer.vue';
 
     <div class="flex items-center justify-center gap-4">
       <button class="w-14 h-14 rounded-[60px] rounded-tr-[20px] bg-white/10 hover:bg-white/20 flex items-center justify-center transition-all cursor-pointer">
-        <img src="https://www.svgrepo.com/show/475656/google-color.svg" class="w-6 h-6" />
+        <img loading="lazy" decoding="async" src="https://www.svgrepo.com/show/475656/google-color.svg" class="w-6 h-6" />
       </button>
 
       <button class="w-14 h-14 rounded-[60px] rounded-tr-[20px] bg-white/10 hover:bg-white/20 flex items-center justify-center transition-all cursor-pointer">
-        <img src="https://www.svgrepo.com/show/475647/facebook-color.svg" class="w-6 h-6" />
+        <img loading="lazy" decoding="async" src="https://www.svgrepo.com/show/475647/facebook-color.svg" class="w-6 h-6" />
       </button>
 
       <button class="w-14 h-14 rounded-[60px] rounded-tr-[20px] bg-white/10 hover:bg-white/20 flex items-center justify-center transition-all cursor-pointer">
-        <img src="https://www.svgrepo.com/show/448202/apple.svg" class="w-6 h-6 invert" />
+        <img loading="lazy" decoding="async" src="https://www.svgrepo.com/show/448202/apple.svg" class="w-6 h-6 invert" />
       </button>
     </div>
   </div>

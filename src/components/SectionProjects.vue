@@ -79,7 +79,7 @@
           ">
                     <!-- Image -->
                     <div class="relative overflow-hidden">
-                        <img :src="project.image" class="
+                        <img loading="lazy" decoding="async" :src="project.image" class="
     w-full
     h-[260px]
     object-cover
@@ -102,8 +102,8 @@
                 justify-center
                 cursor-pointer
               " @click="ToggleFav(project.id)">
-                            <Icon v-if="isFav.includes(project.id)" icon="material-symbols:heart-plus-outline-rounded" width="24" height="24"
-                                style="color: red" />
+                            <Icon v-if="isFav.includes(project.id)" icon="material-symbols:heart-plus-outline-rounded"
+                                width="24" height="24" style="color: red" />
                             <Icon v-else icon="material-symbols:heart-plus-outline-rounded" width="24" height="24"
                                 style="color: var(--color-bg)" />
 
@@ -157,69 +157,123 @@
 </template>
 
 <script setup>
-import { useApistore } from '@/stores/apiproject';
-import gsap from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { onMounted, ref } from 'vue';
-import { useRouter } from 'vue-router';
+import { useApistore } from "@/stores/apiproject"
+import gsap from "gsap"
+import { ScrollTrigger } from "gsap/ScrollTrigger"
+import { onMounted, onBeforeUnmount, ref, nextTick } from "vue"
+import { useRouter } from "vue-router"
+
+gsap.registerPlugin(ScrollTrigger)
+
 const store = useApistore()
-//FAV
+const router = useRouter()
+
+// ======================
+// FAV
+// ======================
 const isFav = ref([])
+
 const ToggleFav = (id) => {
-    if (isFav.value.includes(id)) {
-        isFav.value = isFav.value.filter((FavId) => FavId !== id)
+    const favs = isFav.value
+
+    if (favs.includes(id)) {
+        isFav.value = favs.filter((favId) => favId !== id)
     } else {
-        isFav.value.push(id)
+        favs.push(id)
     }
 }
-gsap.registerPlugin(ScrollTrigger)
+
+// ======================
+// REFS
+// ======================
 const projectsSection = ref(null)
 const headingRef = ref(null)
 const filtersRef = ref(null)
 const cardsRef = ref([])
-onMounted(() => {
-    store.init()
 
-    const tl = gsap.timeline({
-        scrollTrigger: {
-            trigger: projectsSection.value,
-            start: "top 80%",
-            toggleActions: "play reverse play reverse",
-        }
-    })
+let ctx
 
-    // Heading
-    tl.from(headingRef.value, {
-        opacity: 0,
-        y: 50,
-        duration: 1,
-        ease: "power3.out"
-    })
-
-        // Filters
-        .to(filtersRef.value.children, {
-            opacity: 1,
-            y: -25,
-            stagger: 0.2,
-            duration: 0.7,
-            ease: "power2.out"
-        }, "-=0.5")
-
-        // Cards
-        .from(cardsRef.value, {
-            opacity: 0,
-            y: 60,
-            scale: 0.95,
-            stagger: 0.12,
-            duration: 0.8,
-            ease: "power3.out"
-        }, "-=0.3")
-
-})
-const router = useRouter()
+// ======================
+// PAGE DETAILS
+// ======================
 const pagedetails = (id) => {
     router.push(`/pagedetailscompaund/${id}`)
 }
+
+// ======================
+// MOUNT
+// ======================
+onMounted(async () => {
+    // متستناش الانيميشن عشان البيانات
+    store.init()
+
+    // استنى الرندر يخلص
+    await nextTick()
+
+    // GSAP Context = أفضل في التنضيف والـ performance
+    ctx = gsap.context(() => {
+        const tl = gsap.timeline({
+            scrollTrigger: {
+                trigger: projectsSection.value,
+                start: "top 85%",
+                once: true, // يمنع إعادة تشغيل الانيميشن كل Scroll
+            },
+            defaults: {
+                ease: "power3.out",
+            },
+        })
+
+        // Heading
+        tl.from(headingRef.value, {
+            opacity: 0,
+            y: 40,
+            duration: 0.7,
+            force3D: true,
+            clearProps: "all",
+        })
+
+        // Filters
+        if (filtersRef.value?.children?.length) {
+            tl.to(
+                filtersRef.value.children,
+                {
+                    opacity:1,
+                    y: 10,
+                    stagger: 0.001,
+                    duration: 2,
+                    ease:"power3.inOut",
+                    // force3D: true,
+                    // clearProps: "all",
+                },
+                "-=0.3"
+            )
+        }
+
+        // Cards
+        if (cardsRef.value?.length) {
+            tl.from(
+                cardsRef.value,
+                {
+                    opacity: 1,
+                    y: 35,
+                    scale: 0.98,
+                    stagger: 0.06,
+                    duration: 0.5,
+                    force3D: true,
+                    clearProps: "all",
+                },
+                "-=0.2"
+            )
+        }
+    }, projectsSection)
+})
+
+// ======================
+// CLEANUP
+// ======================
+onBeforeUnmount(() => {
+    ctx?.revert()
+})
 </script>
 <style scoped>
 .filterStyle {

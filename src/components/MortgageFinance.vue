@@ -138,7 +138,7 @@
             <div ref="imageSide"
                 class="hidden lg:block lg:col-span-5 relative min-h-[380px] overflow-hidden">
 
-                <img src="https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?q=80&w=600&auto=format&fit=crop"
+                <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?q=80&w=600&auto=format&fit=crop"
                     alt="عقار مصر"
                     class="absolute inset-0 w-full h-full object-cover hover:scale-110 transition-transform duration-[4000ms]" />
 

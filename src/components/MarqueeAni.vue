@@ -70,7 +70,7 @@ onMounted(() => {
 
           will-change-transform
         ">
-                <img :src="brand.logo" loading="lazy" class="w-[150px] md:w-[180px] lg:w-[220px] bg-cover bg-center"
+                <img loading="lazy" decoding="async" :src="brand.logo" class="w-[150px] md:w-[180px] lg:w-[220px] bg-cover bg-center"
                     :alt="brand.name">
 
             </div>

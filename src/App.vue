@@ -1,16 +1,18 @@
 <script setup>
 import { RouterView } from 'vue-router'
 import NavBar from '@/components/NavBar.vue';
-import { onMounted, onUnmounted, ref } from 'vue';
+import { defineAsyncComponent, onMounted, onUnmounted, ref } from 'vue';
 import Footer from '@/components/Footer.vue';
 import { Icon } from '@iconify/vue';
 
+const LazyNavBar = defineAsyncComponent(() => import('@/components/NavBar.vue'))
+const LazyFooter = defineAsyncComponent(() => import('@/components/Footer.vue'))
 const isDark = ref(false);
 
 onMounted(() => {
   const savedTheme = localStorage.getItem("theme");
 
-  const theme = savedTheme || "dark"; 
+  const theme = savedTheme || "dark";
 
   document.documentElement.setAttribute("data-theme", theme);
 
@@ -44,20 +46,20 @@ onUnmounted(() => {
 
 <template>
   <header class="relative bg-[var(--color-bg)]">
-      <div :class="[
-    'fixed bottom-5 right-5 cursor-pointer transition-all duration-300 flex items-center justify-center rounded-full shadow-md z-[1111]',
-    showScroll
-      ? 'opacity-100 translate-y-0'
-      : 'opacity-0 translate-y-5 pointer-events-none'
-  ]" @click="ScrollToTop">
-    <div
-      class="bg-[var(--color-primary)] hover:text-[black] opacity-70 hover:opacity-100 hover:shadow-[0_0_20px_rgba(196,151,78,0.5)] text-white p-2 sectionTitle rounded-full transition-all duration-300 hover:scale-110">
-      <Icon icon="material-symbols:keyboard-arrow-up-rounded"  />
+    <div :class="[
+      'fixed bottom-5 right-5 cursor-pointer transition-all duration-300 flex items-center justify-center rounded-full shadow-md z-[1111]',
+      showScroll
+        ? 'opacity-100 translate-y-0'
+        : 'opacity-0 translate-y-5 pointer-events-none'
+    ]" @click="ScrollToTop">
+      <div
+        class="bg-[var(--color-primary)] hover:text-[black] opacity-70 hover:opacity-100 hover:shadow-[0_0_20px_rgba(196,151,78,0.5)] text-white p-2 sectionTitle rounded-full transition-all duration-300 hover:scale-110">
+        <Icon icon="material-symbols:keyboard-arrow-up-rounded" />
+      </div>
     </div>
-  </div>
-    <NavBar :is-dark="isDark" class="bg-[var(--color-bg)]" @toggle-theme="toggleTheme" />
+    <LazyNavBar :is-dark="isDark" class="bg-[var(--color-bg)]" @toggle-theme="toggleTheme" />
     <RouterView />
-    <Footer></Footer>
+    <LazyFooter />
   </header>
 </template>
 

@@ -120,8 +120,8 @@ onMounted(() => {
                     class="news-card bg-[var(--color-boxes-pagedetails)] rounded-[24px] overflow-hidden border border-white/10 opacity-0 hover:border-[var(--color-primary)] transition-all duration-300 group">
                     
                     <div class="overflow-hidden">
-                        <img :src="item.image" class="w-full bg-cover bg-center bg-no-repeat group-hover:scale-105 transition-transform duration-500" sizes="100vw"
-                            loading="eager" fetchpriority="high" alt="Hero" />
+                        <img loading="lazy" decoding="async" :src="item.image" class="w-full bg-cover bg-center bg-no-repeat group-hover:scale-105 transition-transform duration-500" sizes="100vw"
+                             fetchpriority="high" alt="Hero" />
                     </div>
 
                     <div class="p-5">

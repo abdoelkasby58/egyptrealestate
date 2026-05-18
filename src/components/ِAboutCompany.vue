@@ -7,7 +7,7 @@
 
                 <!-- Background -->
                 <img src="https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?q=80&w=1400&auto=format&fit=crop"
-                    class="absolute inset-0 w-full h-full object-cover" alt="about" />
+                    class="absolute inset-0 w-full h-full object-cover" loading="lazy" decoding="async" alt="about" />
 
                 <!-- Overlay -->
                 <div class="backgroundgreabout absolute inset-0"></div>

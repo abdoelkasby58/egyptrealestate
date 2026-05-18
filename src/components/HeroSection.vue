@@ -1,7 +1,6 @@
 <template>
     <div class="h-screen relative">
-        <img :src="PhotoSection" loading="eager" fetchpriority="high" class="w-full h-full object-cover"
-            alt="rearestate">
+        <img loading="lazy" decoding="async" :src="PhotoSection" class="w-full h-full object-cover" alt="rearestate">
         <div class="backgroundgre absolute inset-0 overlay"></div>
         <div class="absolute inset-0 top-10 overlay flex flex-col items-center justify-center">
             <h1 ref="animationTitle" class="mainTitle text-white font-bold opacity-0 text-center mb-7">{{
