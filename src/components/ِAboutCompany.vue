@@ -226,15 +226,4 @@ const stats = computed(() => [
     background: linear-gradient(100deg, rgb(2, 13, 27) 0%, rgba(7, 17, 27, 0.5) 50%, rgb(2, 13, 27) 100%);
 }
 
-img {
-    will-change: transform;
-}
-
-button {
-    will-change: transform;
-}
-
-html {
-    scroll-behavior: smooth;
-}
 </style>
