@@ -63,7 +63,7 @@
                                     {{ $t('aboutcompany.cardDesc') }}
                                 </p>
                             </div>
-                            <button
+                            <button @click="Tocontact"
                                 class="w-full paragraph sm:w-auto border border-[#C4974E]/30 hover:bg-[#C4974E] hover:text-black transition-all duration-300 px-7 py-3 rounded-[60px] rounded-tr-[20px] ">
                                 {{ $t('aboutcompany.cardButton') }}
                             </button>
@@ -101,6 +101,7 @@ import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { computed, nextTick, onMounted, ref } from 'vue';
 import { useI18n } from 'vue-i18n';
+import { useRouter } from 'vue-router';
 const countAboutproject = ref(0)
 const countClient = ref(0)
 const countinvestment = ref(0)
@@ -112,6 +113,10 @@ const contentRef = ref(null)
 const buttonRef = ref(null)
 const extraCardRef = ref(null)
 const statsRef = ref([])
+const router = useRouter()
+const Tocontact = () => {
+    router.push('/contactus')
+}
 onMounted(async () => {
     // Heading
   gsap.from(headingRef.value, {

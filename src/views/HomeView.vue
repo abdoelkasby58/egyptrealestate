@@ -10,7 +10,7 @@ const LazyMarqueeAni = defineAsyncComponent(() => import('@/components/MarqueeAn
     <div class="bg-[var(--color-bg)] top-0 left-0 z-[5] w-full">
       <LazyHeroSection />
       <LazyMarqueeAni />
-      <div class="max-w-[1400px] m-auto">
+      <div class="max-w-[1400px] mx-auto">
       <LazyMortgageFinance />
       <LazyChart />
       </div>
