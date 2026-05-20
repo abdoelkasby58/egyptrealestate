@@ -110,7 +110,7 @@ console.log(storeDet)
             {{ $t("projectDetails.location") }}
         </p>
 
-        <h3>{{ project?.location }}</h3>
+        <h3 class="text-[var(--color-title)] ">{{ project?.location }}</h3>
     </div>
 
     <div
@@ -121,7 +121,7 @@ console.log(storeDet)
             {{ $t("projectDetails.area") }}
         </p>
 
-        <h3>{{ project?.area }}</h3>
+        <h3 class="text-[var(--color-title)]">{{ project?.area }}</h3>
     </div>
 
     <div
@@ -132,7 +132,7 @@ console.log(storeDet)
             {{ $t("projectDetails.bedrooms") }}
         </p>
 
-        <h3>{{ project?.bedrooms }}</h3>
+        <h3 class="text-[var(--color-title)]">{{ project?.bedrooms }}</h3>
     </div>
 
     <div
@@ -143,7 +143,7 @@ console.log(storeDet)
             {{ $t("projectDetails.bathrooms") }}
         </p>
 
-        <h3>{{ project?.bathrooms }}</h3>
+        <h3 class="text-[var(--color-title)]">{{ project?.bathrooms }}</h3>
     </div>
 
     <div
@@ -154,7 +154,7 @@ console.log(storeDet)
             {{ $t("projectDetails.developer") }}
         </p>
 
-        <h3>{{ project?.developer }}</h3>
+        <h3 class="text-[var(--color-title)]">{{ project?.developer }}</h3>
     </div>
 
     <div
@@ -165,7 +165,7 @@ console.log(storeDet)
             {{ $t("projectDetails.delivery") }}
         </p>
 
-        <h3>{{ project?.delivery }}</h3>
+        <h3 class="text-[var(--color-title)]">{{ project?.delivery }}</h3>
     </div>
 
 </div>
