@@ -180,7 +180,7 @@ const handleSubmit = async () => {
                                 {{ $t("contact.info.addressTitle") }}
                             </h3>
                             <p class="smallText font-semibold text-[var(--color-title)]">
-                                {{ $t("contact.info.addressValue") }}
+                                {{ $t("footer.address") }}
                             </p>
                         </div>
                     </div>

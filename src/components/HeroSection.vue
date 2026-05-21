@@ -1,109 +1,84 @@
 <template>
-    <div class="h-screen relative">
+    <div class="h-screen relative ">
         <img loading="lazy" decoding="async" :src="PhotoSection" class="w-full h-full object-cover" alt="rearestate">
         <div class="backgroundgre absolute inset-0 overlay"></div>
         <div class="absolute inset-0 top-10 overlay flex flex-col items-center justify-center">
-            <h1 ref="animationTitle" class="mainTitle text-white font-bold opacity-0 text-center mb-7">{{
+            <h1 ref="animationTitle" class="mainTitle text-white pt-18 md:pt-14 lg:pt-10  font-bold opacity-0 text-center mb-7">{{
                 $t("hero.title") }}</h1>
             <p ref="animationPragraph" class="smallTitle opacity-0 text-gray-200 mb-14">{{ $t("hero.subtitle") }}</p>
-           <section
-  ref="animationBoxes"
-  class="grid grid-cols-2 lg:grid-cols-4 opacity-0 text-center 
+            <section ref="animationBoxes" class="grid grid-cols-2 lg:grid-cols-4 opacity-0 text-center 
         bg-[#020D1B]/80 backdrop-blur-sm
          w-[95%] md:w-[90%]
          min-h-[180px]
          border border-[#C4974E]
          rounded-[20px]
-         overflow-hidden"
->
-  <!-- Item -->
-  <div
-    class="flex flex-col items-center justify-center
+         overflow-hidden">
+                <!-- Item -->
+                <div class="flex flex-col items-center justify-center
            py-6 px-3
-           border-b lg:border-b-0
-           border-r
+           border 
            border-[#C4974E]
            hover:bg-[#c4974e41]
-           transition duration-300"
-  >
-    <Icon
-      icon="material-symbols:location-city"
-      class="text-[#C4974E] text-3xl md:text-4xl mb-3"
-    />
-    <span class="text-white text-xl md:text-2xl font-semibold mb-2">
-      +{{ countCitynew }}
-    </span>
-    <p class="text-white font-semibold text-sm md:text-base">
-      {{ $t("hero.stats.cities") }}
-    </p>
-  </div>
+           transition duration-300">
+                    <Icon icon="material-symbols:location-city" class="text-[#C4974E] text-3xl md:text-4xl mb-3" />
+                    <span class="text-white text-xl md:text-2xl font-semibold mb-2">
+                        +{{ countCitynew }}
+                    </span>
+                    <p class="text-white font-semibold text-sm md:text-base">
+                        {{ $t("hero.stats.cities") }}
+                    </p>
+                </div>
 
-  <!-- Item -->
-  <div
-    class="flex flex-col items-center justify-center
+                <!-- Item -->
+                <div class="flex flex-col items-center justify-center
            py-6 px-3
-           border-b lg:border-b-0
-           lg:border-r
+           border 
            border-[#C4974E]
            hover:bg-[#c4974e41]
-           transition duration-300"
-  >
-    <Icon
-      icon="material-symbols:altitude-outline-rounded"
-      class="text-[#C4974E] text-3xl md:text-4xl mb-3"
-    />
-    <span class="text-white text-xl md:text-2xl font-semibold mb-2">
-      +{{ countExperince }}
-    </span>
-    <p class="text-white font-semibold text-sm md:text-base">
-      {{ $t("hero.stats.experience") }}
-    </p>
-  </div>
+           transition duration-300">
+                    <Icon icon="material-symbols:altitude-outline-rounded"
+                        class="text-[#C4974E] text-3xl md:text-4xl mb-3" />
+                    <span class="text-white text-xl md:text-2xl font-semibold mb-2">
+                        +{{ countExperince }}
+                    </span>
+                    <p class="text-white font-semibold text-sm md:text-base">
+                        {{ $t("hero.stats.experience") }}
+                    </p>
+                </div>
 
-  <!-- Item -->
-  <div
-    class="flex flex-col items-center justify-center
+                <!-- Item -->
+                <div class="flex flex-col items-center justify-center
            py-6 px-3
-           border-r
-           lg:border-r
+            border 
            border-[#C4974E]
            hover:bg-[#c4974e41]
-           transition duration-300"
-  >
-    <Icon
-      icon="material-symbols:data-thresholding-outline-rounded"
-      class="text-[#C4974E] text-3xl md:text-4xl mb-3"
-    />
-    <span class="text-white text-xl md:text-2xl font-semibold mb-2">
-      +{{ countResidentialunit }}
-    </span>
-    <p class="text-white font-semibold text-sm md:text-base">
-      {{ $t("hero.stats.units") }}
-    </p>
-  </div>
+           transition duration-300">
+                    <Icon icon="material-symbols:data-thresholding-outline-rounded"
+                        class="text-[#C4974E] text-3xl md:text-4xl mb-3" />
+                    <span class="text-white text-xl md:text-2xl font-semibold mb-2">
+                        +{{ countResidentialunit }}
+                    </span>
+                    <p class="text-white font-semibold text-sm md:text-base">
+                        {{ $t("hero.stats.units") }}
+                    </p>
+                </div>
 
-  <!-- Item -->
-  <div
-    class="flex flex-col items-center justify-center
+                <!-- Item -->
+                <div class="flex flex-col items-center justify-center
            py-6 px-3
+           border 
+           border-[#C4974E]
            hover:bg-[#c4974e41]
-           transition duration-300"
-  >
-    <Icon
-      icon="material-symbols:approval"
-      class="text-[#C4974E] text-3xl md:text-4xl mb-3"
-    />
-    <span
-      ref="counterRef"
-      class="text-white text-xl md:text-2xl font-semibold mb-2"
-    >
-      +{{ countproject }}
-    </span>
-    <p class="text-white font-semibold text-sm md:text-base">
-      {{ $t("hero.stats.projects") }}
-    </p>
-  </div>
-</section>
+           transition duration-300">
+                    <Icon icon="material-symbols:approval" class="text-[#C4974E] text-3xl md:text-4xl mb-3" />
+                    <span ref="counterRef" class="text-white text-xl md:text-2xl font-semibold mb-2">
+                        +{{ countproject }}
+                    </span>
+                    <p class="text-white font-semibold text-sm md:text-base">
+                        {{ $t("hero.stats.projects") }}
+                    </p>
+                </div>
+            </section>
         </div>
     </div>
 </template>

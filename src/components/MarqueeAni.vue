@@ -1,5 +1,5 @@
 <script setup>
-import {  onMounted } from "vue"
+import { onMounted } from "vue"
 import gsap from "gsap"
 import imgbarnd1 from "@/assets/talatmostafa-removebg-preview.png";
 import imgbarnd2 from "@/assets/tatweermisr-removebg-preview.png";
@@ -27,23 +27,25 @@ const brands = [
 
 onMounted(() => {
     const items = gsap.utils.toArray(".item")
-
-    const speed = 1.2 // السرعة
-
+    const speed = 1 // السرعة
     const spacing = 280 // المسافة بين العناصر
-
 
     // نوزع العناصر أفقياً
     items.forEach((el, i) => {
         gsap.set(el, {
             x: i * spacing,
         })
+        el.addEventListener("mouseenter", () => {
+            gsap.to(el, { scale: 1.1, duration: 0.3 })
+        })
+        el.addEventListener("mouseleave", () => {
+            gsap.to(el, { scale: 1, duration: 0.3 })
+        })
     })
 
     gsap.ticker.add(() => {
         items.forEach((el) => {
             let x = gsap.getProperty(el, "x")
-
             x -= speed
 
             // لما يخرج من الشمال يرجع يمين فوراً
@@ -59,28 +61,28 @@ onMounted(() => {
 
 <template>
     <section class="py-2 bgboxes backdrop-blur-lg overflow-hidden bg-[var(--color-bg)]">
+        <!-- تم إضافة كلاسات flex و items-center لضمان توسط العناصر عمودياً دائماً -->
+        <div ref="container" class="relative h-[100px] md:h-[120px] lg:h-[150px] overflow-hidden flex items-center">
 
-        <div ref="container" class="relative h-[100px] md:h-[120px] lg:h-[150px] overflow-hidden">
-            <div v-for="(brand, i) in brands" :key="brands.id" class="
-          item
-          absolute
-          top-4
-          -translate-y-1/2
-          left-0
-
-          will-change-transform
-        ">
-                <img loading="lazy" decoding="async" :src="brand.logo" class="w-[150px] md:w-[180px] lg:w-[220px] bg-cover bg-center"
-                    :alt="brand.name">
-
+            <div v-for="(brand, i) in brands" :key="brand.id" class="
+              item
+              absolute
+              left-0
+              will-change-transform
+              flex
+              items-center
+              justify-center
+            ">
+                <img loading="lazy" decoding="async" :src="brand.logo"
+                    class="w-[150px] md:w-[180px] lg:w-[220px] h-auto object-contain" :alt="brand.name">
             </div>
-        </div>
 
+        </div>
     </section>
 </template>
+
 <style>
 .bgboxes {
-
     background-color: #e2e8f057;
 }
 </style>

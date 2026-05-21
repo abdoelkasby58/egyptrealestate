@@ -7,7 +7,7 @@ const LazyMarqueeAni = defineAsyncComponent(() => import('@/components/MarqueeAn
 </script>
 <template>
   <header class="top-0 inset-0">
-    <div class="bg-[var(--color-bg)] top-0 left-0 z-[5] pt-17 w-full">
+    <div class="bg-[var(--color-bg)] top-0 left-0 z-[5] w-full">
       <LazyHeroSection />
       <LazyMarqueeAni />
       <div class="max-w-[1400px] mx-auto">
