@@ -27,14 +27,33 @@ const brands = [
 
 onMounted(() => {
     const items = gsap.utils.toArray(".item")
-    const speed = 1 // السرعة
-    const spacing = 280 // المسافة بين العناصر
+    const speed = 1
 
-    // نوزع العناصر أفقياً
-    items.forEach((el, i) => {
-        gsap.set(el, {
-            x: i * spacing,
+    // نحسب المسافة حسب حجم الشاشة
+    const getSpacing = () => {
+        if (window.innerWidth < 640) return 140   // موبايل
+        if (window.innerWidth < 1024) return 200  // تابلت
+        return 280                                 // ديسكتوب
+    }
+
+    let spacing = getSpacing()
+
+    const setPositions = () => {
+        spacing = getSpacing()
+
+        items.forEach((el, i) => {
+            gsap.set(el, {
+                x: i * spacing,
+            })
         })
+    }
+
+    setPositions()
+
+    // تحديث عند تغيير حجم الشاشة
+    window.addEventListener("resize", setPositions)
+
+    items.forEach((el) => {
         el.addEventListener("mouseenter", () => {
             gsap.to(el, { scale: 1.1, duration: 0.3 })
         })
@@ -48,7 +67,6 @@ onMounted(() => {
             let x = gsap.getProperty(el, "x")
             x -= speed
 
-            // لما يخرج من الشمال يرجع يمين فوراً
             if (x < -spacing) {
                 x = spacing * (items.length - 1)
             }

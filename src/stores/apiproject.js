@@ -19,7 +19,7 @@ export const useApistore = defineStore("projects", {
       const langStore = useLangStore();
       this.allProjects = langStore.locale === "ar" ? projectsAr : projectsEn;
       setTimeout(() => {
-        this.loading = false;
+        this.loading = false; 
       }, 200);
     },
     init() {
