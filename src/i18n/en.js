@@ -220,6 +220,7 @@ export default {
       selectPlaceholder: "Select project type from the list",
       message: "Your Message Details",
       submit: "Send Message Now",
+      sending: "Sending...",
       options: {
         residential: "Residential Project (Apartments / Villas)",
         commercial: "Commercial Project (Offices / Shops)",

@@ -70,21 +70,31 @@
                         </div>
                     </div>
                 </div>
-                <div class="absolute left-1/2 -bottom-22 -translate-x-1/2 w-full px-4 z-[90]">
+                <div class="relative lg:absolute left-1/2 lg:-bottom-22 -translate-x-1/2 
+         w-full px-4 z-[90] mt-8 lg:mt-0">
                     <!-- Stats -->
-                    <div class="grid grid-cols-4 gap-4 md:gap-5 max-w-[1000px] mx-auto">
+                    <div class="grid grid-cols-2 lg:grid-cols-4 
+             gap-4 md:gap-5 
+             max-w-[1000px] mx-auto">
 
-                        <div ref="statsRef" v-for="stat in stats" :key="stat.id"
-                            class="bg-[#0E1B2A]/95 backdrop-blur-sm opacity-0 border p-4 flex flex-col items-center justify-center border-white/10 rounded-3xl text-center hover:border-[#C4974E]/40 transition-all duration-300">
-                            <div class="text-[#C4974E] text-xl md:text-2xl lg:text-4xl mb-4">
+                        <div ref="statsRef" v-for="stat in stats" :key="stat.id" class="bg-[#0E1B2A]/95 backdrop-blur-sm opacity-0
+         border border-white/10
+         rounded-3xl
+         p-4 md:p-5
+         min-h-[160px]
+         flex flex-col items-center justify-center
+         text-center
+         hover:border-[#C4974E]/40
+         transition-all duration-300">
+                            <div class="text-[#C4974E] text-2xl md:text-3xl lg:text-4xl mb-4">
                                 <Icon :icon="stat.icon" />
                             </div>
 
-                            <h3 class="cardTitle font-black mb-2">
+                            <h3 class="text-xl md:text-2xl font-black mb-2">
                                 +{{ stat.number }}
                             </h3>
 
-                            <p class="text-gray-400 smallText">
+                            <p class="text-gray-400 text-sm md:text-base leading-6">
                                 {{ stat.title }}
                             </p>
                         </div>
@@ -119,24 +129,24 @@ const Tocontact = () => {
 }
 onMounted(async () => {
     // Heading
-  gsap.from(headingRef.value, {
+    gsap.from(headingRef.value, {
         opacity: 0,
         duration: 0.4,
-        scale:0.1,
-        y:60,
-        delay:0.4,
+        scale: 0.1,
+        y: 60,
+        delay: 0.4,
         ease: "power1.inOut"
     })
-        gsap.to(countAboutproject, {
-            value: 100,
-            duration: 4,
-            delay: 3,
-            ease: "power2.out",
-            roundProps: "value",
-            onUpdate: () => {
-                countAboutproject.value = Math.floor(countAboutproject.value)
-            }
-        }),
+    gsap.to(countAboutproject, {
+        value: 100,
+        duration: 4,
+        delay: 3,
+        ease: "power2.out",
+        roundProps: "value",
+        onUpdate: () => {
+            countAboutproject.value = Math.floor(countAboutproject.value)
+        }
+    }),
 
         gsap.to(countClient, {
             value: 10000,

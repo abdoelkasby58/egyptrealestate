@@ -215,6 +215,7 @@ export default {
       selectPlaceholder: "اختر نوع المشروع من القائمة",
       message: "تفاصيل رسالتك",
       submit: "إرسال الرسالة الآن",
+      sending: "جاري الإرسال...",
       options: {
         residential: "مشروع سكني (شقق / فيلات)",
         commercial: "مشروع تجاري (مكاتب / محلات)",

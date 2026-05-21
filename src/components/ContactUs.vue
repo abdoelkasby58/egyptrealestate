@@ -9,25 +9,25 @@ onMounted(() => {
     gsap.from(animationtitle.value, {
         opacity: 0,
         duration: 0.4,
-        scale:0.1,
-        y:60,
-        delay:0.4,
+        scale: 0.1,
+        y: 60,
+        delay: 0.4,
         ease: "power1.inOut"
     })
     gsap.from(animationUs.value, {
         opacity: 0,
         duration: 0.4,
-        scale:0.9,
-        x:-80,
-        delay:0.8,
+        scale: 0.9,
+        x: -80,
+        delay: 0.8,
         ease: "power1.inOut"
     })
     gsap.from(animationForm.value, {
         opacity: 0,
         duration: 0.4,
-        scale:0.9,
-        x:80,
-        delay:0.8,
+        scale: 0.9,
+        x: 80,
+        delay: 0.8,
         ease: "power1.inOut"
     })
 })
@@ -133,6 +133,11 @@ const handleSubmit = async () => {
     } finally {
         loading.value = false
     }
+    localStorage.setItem("contactFormDataName", formData.value.name)
+    localStorage.setItem("contactFormDataEmail", formData.value.email)
+    localStorage.setItem("contactFormDataPhone", formData.value.phone)
+    localStorage.setItem("contactFormDataProjectType", formData.value.projectType)
+    localStorage.setItem("contactFormDataMessage", formData.value.message)
 }
 </script>
 
@@ -205,7 +210,7 @@ const handleSubmit = async () => {
                                 {{ $t("contact.info.emailTitle") }}
                             </h3>
                             <p class="smallText font-semibold text-[var(--color-title)]">
-                               info@aqarmisr.com
+                                info@aqarmisr.com
                             </p>
                         </div>
                     </div>

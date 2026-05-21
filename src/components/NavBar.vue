@@ -15,7 +15,7 @@
                     <Icon :icon="isDark ? 'mdi:weather-sunny' : 'mdi:weather-night'" />
                 </div>
                 <button
-                class="px-5 py-2 border-1  text-[var(--color-title)] border-[#C4974E] bg-[#C4974E] rounded-[60px] rounded-tr-[20px] font-medium hover:scale-105 hover:text-[var(--color-title-hover)] transition-all duration-300 cursor-pointer hover:shadow-[0_0_20px_rgba(196,151,78,0.5)] active:scale-95"
+                    class="px-5 py-2 border-1  text-[var(--color-title)] border-[#C4974E] bg-[#C4974E] rounded-[60px] rounded-tr-[20px] font-medium hover:scale-105 hover:text-[var(--color-title-hover)] transition-all duration-300 cursor-pointer hover:shadow-[0_0_20px_rgba(196,151,78,0.5)] active:scale-95"
                     @click="login">
                     {{ t("nav.consult") }}
                 </button>
@@ -37,23 +37,33 @@
             ]">
                 <ul class="flex flex-col md:flex-row items-center gap-8 paragraph">
                     <li class="hoverAfter text-[var(--color-title)]">
-                        <RouterLink to="/">{{ t("nav.home") }}</RouterLink>
+                        <button @click="handleNavigate('/')" class="cursor-pointer">
+                            {{ t("nav.home") }}
+                        </button>
                     </li>
 
                     <li class="hoverAfter text-[var(--color-title)]">
-                        <RouterLink to="/projects">{{ t("nav.projects") }}</RouterLink>
+                        <button @click="handleNavigate('/projects')" class="cursor-pointer">
+                            {{ t("nav.projects") }}
+                        </button>
                     </li>
 
                     <li class="hoverAfter text-[var(--color-title)]">
-                        <RouterLink to="/about">{{ t("nav.about") }}</RouterLink>
+                        <button @click="handleNavigate('/about')" class="cursor-pointer">
+                            {{ t("nav.about") }}
+                        </button>
                     </li>
-                    
+
                     <li class="hoverAfter text-[var(--color-title)]">
-                        <RouterLink to="/news">{{ t("nav.news") }}</RouterLink>
+                        <button @click="handleNavigate('/news')" class="cursor-pointer">
+                            {{ t("nav.news") }}
+                        </button>
                     </li>
-                    
+
                     <li class="hoverAfter text-[var(--color-title)]">
-                        <RouterLink to="/contactus">{{ t("nav.contact") }}</RouterLink>
+                        <button @click="handleNavigate('/contactus')" class="cursor-pointer">
+                            {{ t("nav.contact") }}
+                        </button>
                     </li>
                 </ul>
 
@@ -70,8 +80,8 @@
                         <Icon :icon="isDark ? 'mdi:weather-sunny' : 'mdi:weather-night'" />
                     </div>
                     <button
-                    class="px-5 py-2 bg-[#C4974E] rounded-[60px] rounded-tr-[20px]  text-[var(--color-title)] font-medium hover:scale-105 transition-all duration-300"
-                    @click="login">
+                        class="px-5 py-2 bg-[#C4974E] rounded-[60px] rounded-tr-[20px]  text-[var(--color-title)] font-medium hover:scale-105 transition-all duration-300"
+                        @click="login">
                         {{ t("nav.consult") }}
                     </button>
                 </div>
@@ -79,7 +89,8 @@
 
             <!-- Logo -->
             <div>
-                <img loading="lazy" decoding="async" @click="refresh" :src="LogoReal" class="w-[65px] md:w-[75px] lg:w-[85px] cursor-pointer transition" alt="Logo" />
+                <img loading="lazy" decoding="async" @click="refresh" :src="LogoReal"
+                    class="w-[65px] md:w-[75px] lg:w-[85px] cursor-pointer transition" alt="Logo" />
             </div>
         </div>
     </section>
@@ -102,7 +113,10 @@ defineProps({
 const isOpen = ref(false);
 
 const router = useRouter();
-
+const handleNavigate = (path) => {
+    isOpen.value = false
+    router.push(path)
+}
 
 
 const refresh = () => {
