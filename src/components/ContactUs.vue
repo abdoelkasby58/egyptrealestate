@@ -105,7 +105,12 @@ const handleSubmit = async () => {
 
     // إذا وجد أي خطأ، نوقف التنفيذ فوراً ونمنع الإرسال
     if (!isValid) return
-
+//حفظ البيانات في localStorage (يمكنك تعديل هذا الجزء ليتناسب مع طريقة تخزين البيانات التي تفضلها، مثل إرسالها إلى API بدلاً من localStorage)
+    localStorage.setItem("contactFormDataName", formData.value.name)
+    localStorage.setItem("contactFormDataEmail", formData.value.email)
+    localStorage.setItem("contactFormDataPhone", formData.value.phone)
+    localStorage.setItem("contactFormDataProjectType", formData.value.projectType)
+    localStorage.setItem("contactFormDataMessage", formData.value.message)
     // إذا كانت البيانات سليمة بنسبة 100%، نبدأ عملية الإرسال
     loading.value = true
     try {
@@ -133,11 +138,6 @@ const handleSubmit = async () => {
     } finally {
         loading.value = false
     }
-    localStorage.setItem("contactFormDataName", formData.value.name)
-    localStorage.setItem("contactFormDataEmail", formData.value.email)
-    localStorage.setItem("contactFormDataPhone", formData.value.phone)
-    localStorage.setItem("contactFormDataProjectType", formData.value.projectType)
-    localStorage.setItem("contactFormDataMessage", formData.value.message)
 }
 </script>
 
